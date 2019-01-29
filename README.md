@@ -35,5 +35,3 @@ ng serve
 ## Storage
 
 https://storage.googleapis.com/reservationisucorp.appspot.com/reservation-web-final.zip
-
-

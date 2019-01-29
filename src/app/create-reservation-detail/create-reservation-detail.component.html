@@ -1,0 +1,64 @@
+<div class="row p-4">
+  <div class="col-md-4 text-danger">
+    <h2>Create and Edit Reservation</h2>
+  </div>
+  <div class="col-md-5"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua
+  </div>
+  <div class="col-md-3 float-right">
+    <button type="button" class="btn btn-secondary float-right">
+      Create </button>
+  </div>
+</div>
+
+<p-dataView #dv [value]="listReservation" [paginator]="true" [rows]="5" paginatorPosition="bottom" filterBy="name"
+  [sortField]="sortField" [sortOrder]="sortOrder">
+  <p-header>
+    <div>
+      <div class="row">
+        <div class="col-md-6">
+          <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By" (onChange)="onSortChange($event)"
+            [autoWidth]="false" [style]="{'min-width':'15em'}"></p-dropdown>
+        </div>
+        <div class="col-md-6">
+          <div style="position:relative">
+            <input type="search" pInputText placeholder="Search by name" (keyup)="dv.filter($event.target.value)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </p-header>
+
+  <ng-template let-reservation pTemplate="listItem">
+    <div class="container">
+      <table class="table">
+
+        <tr>
+          <td>{{reservation.id}}</td>
+          <td>{{reservation.name}}</td>
+          <td>
+            <a>ranking</a>
+            <p-rating [(ngModel)]="reservation.ranking" disabled="true" (onCancel)="handleCancel($event)"></p-rating>
+          </td>
+          <td> Favorites
+            <span *ngIf="reservation.favorites == 'S'; else notFavorite">
+              <i class="pi pi-star" style="font-size: 1.5em"></i>
+
+            </span>
+            <ng-template #notFavorite>
+              <i class="pi pi-star-o" style="font-size: 1.5em"></i>
+            </ng-template>
+          </td>
+          <td>
+            <div class="btn btn-info btn-sm">
+              Edit
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </ng-template>
+</p-dataView>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Input data pls
+</button>
