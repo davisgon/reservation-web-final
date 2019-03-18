@@ -1,13 +1,14 @@
 <div class="row p-4">
   <div class="col-md-4 text-danger">
-    <h2>Create Reservation</h2>
+    <h2 i18n="@@cr_message1">Create Reservation</h2>
 
   </div>
   <div class="col-md-5"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
     labore et
     dolore
     magna aliqua </div>
-  <div class="col-md-3 float-right"> <button type="button" class="btn btn-secondary float-right" routerLink="/"> Return
+  <div class="col-md-3 float-right"> <button type="button" class="btn btn-secondary float-right" routerLink="/"
+      i18n="@@cr_message2"> Return
     </button></div>
 </div>
 
@@ -54,7 +55,7 @@
   </div>
   <p-editor [style]="{'height':'320px'}"></p-editor>
   <div class="col-md-3 float-right p-4"> <button type="button" class="btn btn-danger float-right"
-      (click)="saveContact()">
+      (click)="saveContact()" i18n="@@cr_message3">
       Send
     </button></div>
 </form>

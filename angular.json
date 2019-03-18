@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "reservation-web": {
+    "reservation-web-final": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/reservation-web",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -80,8 +80,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-            
-              "outputPath": "dist/reservation-web",
+              "outputPath": "dist/reservation-web-final/",
               "i18nFile": "src/locale/messages.fr.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "fr",
@@ -89,7 +88,7 @@
             },
             "fr": {
               "aot": true,
-              "outputPath": "dist/reservation-web/",
+              "outputPath": "dist/reservation-web-final/",
               "i18nFile": "src/locale/messages.fr.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "fr",
@@ -100,18 +99,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "reservation-web:build"
+            "browserTarget": "reservation-web-final:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "reservation-web:build:production"
+              "browserTarget": "reservation-web-final:build:production"
+            },
+            "fr": {
+              "browserTarget": "reservation-web-final:build:fr"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "reservation-web:build"
+            "browserTarget": "reservation-web-final:build"
           }
         },
         "test": {
@@ -145,7 +147,7 @@
         }
       }
     },
-    "reservation-web-e2e": {
+    "reservation-web-final-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -154,11 +156,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "reservation-web:serve"
+            "devServerTarget": "reservation-web-final:serve:fr"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "reservation-web:serve:production"
+              "devServerTarget": "reservation-web-final:serve:production"
             }
           }
         },
@@ -174,5 +176,5 @@
       }
     }
   },
-  "defaultProject": "reservation-web"
+  "defaultProject": "reservation-web-final"
 }

@@ -2,11 +2,106 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="topWelcome" datatype="html">
+      <trans-unit id="lr_message1" datatype="html">
         <source>Reservation List</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/list-reservation/list-reservation.component.html</context>
           <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="lr_message2" datatype="html">
+        <source> System for reserves management </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/list-reservation/list-reservation.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="lr_message3" datatype="html">
+        <source>
+      Create Reservation </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/list-reservation/list-reservation.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="lr_message4" datatype="html">
+        <source>
+      Contact management </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/list-reservation/list-reservation.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cr_message1" datatype="html">
+        <source>Create Reservation</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/create-reservation/create-reservation.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cr_message2" datatype="html">
+        <source> Return
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/create-reservation/create-reservation.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cr_message3" datatype="html">
+        <source>
+      Send
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/create-reservation/create-reservation.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cc_message1" datatype="html">
+        <source>Create Contact</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/create-contact/create-contact.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/create-contact/create-contact.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cc_message3" datatype="html">
+        <source>
+          Create
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/create-contact/create-contact.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cc_message4" datatype="html">
+        <source> Contact List </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/create-contact/create-contact.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cc_message5" datatype="html">
+        <source>No</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/create-contact/create-contact.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cc_message6" datatype="html">
+        <source>Contact name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/create-contact/create-contact.component.html</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cc_message7" datatype="html">
+        <source>Phone number</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/create-contact/create-contact.component.html</context>
+          <context context-type="linenumber">67</context>
         </context-group>
       </trans-unit>
     </body>

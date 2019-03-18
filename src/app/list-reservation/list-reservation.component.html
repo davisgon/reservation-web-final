@@ -1,17 +1,16 @@
 <div class="row p-3">
   <div class="col-md-3 text-danger">
-    <h2 i18n="@@topWelcome">Reservation List</h2>
+    <h2 i18n="@@lr_message1">Reservation List</h2>
   </div>
-  <div class="col-md-5"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-    labore et
-    dolore
-    magna aliqua </div>
+  <div class="col-md-5">
+    <h2 i18n="@@lr_message2"> System for reserves management </h2>
+  </div>
   <div class="col-md-2 float-right"> <button type="button" class="btn btn-secondary float-right"
-      routerLink="/create-reservation">
+      routerLink="/create-reservation" i18n="@@lr_message3">
       Create Reservation </button></div>
 
   <div class="col-md-2 float-right"> <button type="button" class="btn btn-secondary float-right"
-      routerLink="/create-contact">
+      routerLink="/create-contact" i18n="@@lr_message4">
       Contact management </button></div>
 </div>
 
@@ -20,12 +19,12 @@
   <p-header>
     <div>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6" >
           <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By"
             (onChange)="onSortChange($event)" [autoWidth]="false" [style]="{'min-width':'15em'}"></p-dropdown>
         </div>
         <div class="col-md-6">
-          <div style="position:relative">
+          <div style="position:relative" >
             <input type="search" pInputText placeholder="Search by name" (keyup)="dv.filter($event.target.value)">
           </div>
         </div>

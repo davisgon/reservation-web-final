@@ -1,13 +1,14 @@
 <div class="row p-4">
   <div class="col-md-3 text-danger">
-    <h2>Create Contact</h2>
+    <h2 i18n="@@cc_message1">Create Contact</h2>
 
   </div>
   <div class="col-md-5"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
     labore et
     dolore
     magna aliqua </div>
-  <div class="col-md-3 float-right"> <button type="button" class="btn btn-secondary float-right" routerLink="/"> Return
+  <div class="col-md-3 float-right"> <button type="button" class="btn btn-secondary float-right" routerLink="/"
+      i18n="@@cc_message2"> Return
     </button></div>
 </div>
 <br>
@@ -49,7 +50,7 @@
         <p-calendar [(ngModel)]="objContact.birthDate" name="userBirthDate" dateFormat="dd/mm/yy"></p-calendar>
       </div>
       <div class="col-md-4 float-right p-4"> <button type="button" class="btn btn-danger float-right"
-          (click)="saveContact()">
+          (click)="saveContact()" i18n="@@cc_message3">
           Create
         </button>
 
@@ -57,13 +58,13 @@
     </div>
   </div>
 </form>
-<h2> Contact List </h2>
+<h2 i18n="@@cc_message4"> Contact List </h2>
 <table class="table">
   <thead>
     <tr>
-      <th width="33.3%">No</th>
-      <th width="33.3%">Contact name</th>
-      <th width="33.3%">Phone number</th>
+      <th width="33.3%" i18n="@@cc_message5">No</th>
+      <th width="33.3%" i18n="@@cc_message6">Contact name</th>
+      <th width="33.3%" i18n="@@cc_message7">Phone number</th>
     </tr>
   </thead>
 
