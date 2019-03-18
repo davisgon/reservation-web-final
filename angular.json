@@ -88,6 +88,7 @@
             },
             "fr": {
               "aot": true,
+              "baseHref": "/fr/",
               "outputPath": "dist/reservation-web-final/",
               "i18nFile": "src/locale/messages.fr.xlf",
               "i18nFormat": "xlf",

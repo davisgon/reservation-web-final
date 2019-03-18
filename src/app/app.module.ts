@@ -21,6 +21,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { CreateReservationDetailComponent } from './create-reservation-detail/create-reservation-detail.component';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { CreateContactComponent } from './create-contact/create-contact.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { CreateContactComponent } from './create-contact/create-contact.componen
     DropdownModule,
     AutoCompleteModule
   ],
-  providers: [AppService],
+  providers: [AppService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
