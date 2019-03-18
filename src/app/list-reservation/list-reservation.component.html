@@ -1,13 +1,18 @@
-<div class="row p-4">
-  <div class="col-md-4 text-danger">
-    <h2>Reservation List</h2>
+<div class="row p-3">
+  <div class="col-md-3 text-danger">
+    <h2 i18n="@@topWelcome">Reservation List</h2>
   </div>
   <div class="col-md-5"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
     labore et
     dolore
     magna aliqua </div>
-  <div class="col-md-3 float-right"> <button type="button" class="btn btn-secondary float-right" routerLink="/create-reservation">
+  <div class="col-md-2 float-right"> <button type="button" class="btn btn-secondary float-right"
+      routerLink="/create-reservation">
       Create Reservation </button></div>
+
+  <div class="col-md-2 float-right"> <button type="button" class="btn btn-secondary float-right"
+      routerLink="/create-contact">
+      Contact management </button></div>
 </div>
 
 <p-dataView #dv [value]="listReservation" [paginator]="true" [rows]="5" paginatorPosition="bottom" filterBy="name"
@@ -16,8 +21,8 @@
     <div>
       <div class="row">
         <div class="col-md-6">
-          <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By" (onChange)="onSortChange($event)"
-            [autoWidth]="false" [style]="{'min-width':'15em'}"></p-dropdown>
+          <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By"
+            (onChange)="onSortChange($event)" [autoWidth]="false" [style]="{'min-width':'15em'}"></p-dropdown>
         </div>
         <div class="col-md-6">
           <div style="position:relative">
@@ -33,20 +38,22 @@
       <table class="table">
 
         <tr>
-          <td>{{reservation.id}}</td>
-          <td>{{reservation.name}} <br> {{reservation.date}}</td>
-          <td>
+          <td width="20%">{{reservation.id}}</td>
+          <td width="20%">{{reservation.name}} <br> {{reservation.date}}</td>
+          <td width="20%">
             <a>ranking</a>
             <p-rating [(ngModel)]="reservation.ranking" disabled="true" (onCancel)="handleCancel($event)"></p-rating>
           </td>
-          <td> Favorites
-            <span *ngIf="reservation.favorites == 'S'; else notFavorite"> <i class="pi pi-star" style="font-size: 1.5em"></i>
+          <td width="20%"> Favorites
+            <span *ngIf="reservation.favorites == 'S'; else notFavorite"> <i class="pi pi-star"
+                style="font-size: 1.5em"></i>
 
             </span>
             <ng-template #notFavorite> <i class="pi pi-star-o" style="font-size: 1.5em"></i> </ng-template>
           </td>
-          <td>
-            <div class="col-md-3 float-right"> <button type="button" class="btn btn-secondary float-right" (click)= "openModal(reservation)">
+          <td width="20%">
+            <div class="col-md-3 float-right"> <button type="button" class="btn btn-secondary float-right"
+                (click)="openModal(reservation)">
                 Edit </button></div>
           </td>
         </tr>
@@ -60,7 +67,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="reservationModallLabel">Update data  reservation</h5>
+        <h5 class="modal-title" id="reservationModallLabel">Update data reservation</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -69,7 +76,8 @@
         <form>
           <div class="form-group">
             <label for="city">Name city</label>
-            <input type="text" class="form-control" id="city" name="city" placeholder="input city" [(ngModel)]="reservation.name">
+            <input type="text" class="form-control" id="city" name="city" placeholder="input city"
+              [(ngModel)]="reservation.name">
           </div>
           <div class="form-group">
             <label for="ranking">Ranking</label>
@@ -79,18 +87,21 @@
             <label for="favorite">Favorite</label>
             <div class="form-check">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="favorite" value="S" [(ngModel)]="reservation.favorites">Si
+                <input type="radio" class="form-check-input" name="favorite" value="S"
+                  [(ngModel)]="reservation.favorites">Si
               </label>
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="favorite" value="N" [(ngModel)]="reservation.favorites">No
+                <input type="radio" class="form-check-input" name="favorite" value="N"
+                  [(ngModel)]="reservation.favorites">No
               </label>
             </div>
           </div>
           <div class="form-group">
             <label for="image">Image</label>
-            <input type="text" class="form-control" id="image" name="image" placeholder="input url image" [(ngModel)]="reservation.image">
+            <input type="text" class="form-control" id="image" name="image" placeholder="input url image"
+              [(ngModel)]="reservation.image">
           </div>
           <div class="form-group">
             <label for="date">Date</label>
@@ -100,7 +111,8 @@
                   <i class="pi pi-calendar "></i>
                 </div>
               </div>
-              <p-calendar [showTime]="true" name="date" id="date" [(ngModel)]="reservation.date" dateFormat="dd/mm/yy"></p-calendar>
+              <p-calendar [showTime]="true" name="date" id="date" [(ngModel)]="reservation.date" dateFormat="dd/mm/yy">
+              </p-calendar>
             </div>
           </div>
         </form>

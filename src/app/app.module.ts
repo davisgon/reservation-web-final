@@ -20,13 +20,15 @@ import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { CreateReservationDetailComponent } from './create-reservation-detail/create-reservation-detail.component';
 import { AutoCompleteModule } from 'primeng/autocomplete';
+import { CreateContactComponent } from './create-contact/create-contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListReservationComponent,
     CreateReservationComponent,
-    CreateReservationDetailComponent
+    CreateReservationDetailComponent,
+    CreateContactComponent
   ],
   imports: [
     BrowserModule,

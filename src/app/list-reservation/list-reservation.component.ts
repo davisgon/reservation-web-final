@@ -87,7 +87,7 @@ export class ListReservationComponent implements OnInit {
   }
   successUpdate(res: Reservation) {
     jQuery('#reservationModal').modal('hide')
-    Swal.fire('Reserva', 'Your reservatoin is updated!', 'success')
+    Swal.fire('Reserva', 'Your reservation is updated!', 'success')
     this.getReservation();
   }
   failedUpdate(error: any) {

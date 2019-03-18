@@ -4,11 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:fr2": "ng serve --configuration=fr",
+    "start:fr": "ng serve --aot --i18nFile=src/locale/messages.fr.xlf --i18nFormat=xlf --locale fr",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "compodoc": "npx compodoc -p src/tsconfig.app.json -r --port 8082"
+    "compodoc": "npx compodoc -p src/tsconfig.app.json -r --port 8082",
+    "extract": "ng xi18n --output-path=locale"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +23,7 @@
     "@angular/http": "~7.0.0",
     "@angular/platform-browser": "~7.0.0",
     "@angular/platform-browser-dynamic": "~7.0.0",
+    "@angular/platform-server": "^7.2.9",
     "@angular/router": "~7.0.0",
     "bootstrap": "^4.2.1",
     "core-js": "^2.5.4",
@@ -35,7 +39,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.10.0",
     "@angular/cli": "^7.2.3",
-    "@angular/compiler-cli": "~7.0.0",
+    "@angular/compiler-cli": "^7.0.4",
     "@angular/language-service": "~7.0.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",

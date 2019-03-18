@@ -4,36 +4,62 @@ import { ContactType } from '../shared/model/ContactType';
 import { AppService } from '../shared/service/app.service';
 import { Contact } from '../shared/model/Contact';
 import { Router } from '@angular/router/';
-import { Reservation } from '../shared/model/Reservation';
+
+
 
 declare var Swal: any;
 declare var jQuery: any;
 
 @Component({
-  selector: 'app-create-reservation',
-  templateUrl: './create-reservation.component.html',
-  styleUrls: ['./create-reservation.component.css']
+  selector: 'app-create-contact',
+  templateUrl: './create-contact.component.html',
+  styleUrls: ['./create-contact.component.css']
 })
-export class CreateReservationComponent implements OnInit {
+export class CreateContactComponent implements OnInit {
 
   public listContactType: SelectItem[];
   public objContact: Contact;
   public filteredContacts: any[];
   public contactSeleted: Contact;
   public existeContacto: String;
-  public reservation: Reservation;
-  public listReservation: Reservation[];
+  public contact: Contact;
+  public listContacts: Contact[];
+
+  public sortKey: string;
+  sortField: string;
+  sortOrder: number;
+  sortOptions: SelectItem[];
+
+
+  public vRank: number = 2;
 
   constructor(private appService: AppService, private router: Router) { }
 
   ngOnInit() {
-    this.reservation = new Reservation();
+    this.contact = new Contact();
+
     this.objContact = new Contact();
     this.getContactType()
-    this.listReservation = [];
+    this.listContacts = [];
+    this.getContact();
 
 
   }
+
+  getContact() {
+    this.appService.getContacts().then(
+      obj => this.success3(obj),
+      error => this.failed3(error)
+    );
+  }
+  success3(con: Contact[]) {
+    this.listContacts = [];
+    this.listContacts = con;
+  }
+  failed3(error: any) {
+    console.log("ERROR " + JSON.stringify(error));
+  };
+
 
   filteredContact(event) {
     let query = event.query;
@@ -54,12 +80,11 @@ export class CreateReservationComponent implements OnInit {
   }
 
   onBlurMethod() {
-    //alert("aca00: "+this.contactSeleted);
-    if (this.contactSeleted == undefined){
+    if (this.contactSeleted == undefined) {
       alert("The name of the contact is required");
       return 0;
     }
-    
+
     if (typeof (this.contactSeleted) == "object") {
       let date = new Date(this.contactSeleted.birthDate);
       date.setDate(date.getDate() + 1);
@@ -67,7 +92,7 @@ export class CreateReservationComponent implements OnInit {
       this.objContact.phoneNumber = this.contactSeleted.phoneNumber;
       this.objContact.birthDate = date;
       this.existeContacto = 'S';
-      this.findAllReservationByIdContact(this.contactSeleted.id);
+     
     } else {
       this.existeContacto = 'N';
     }
@@ -75,19 +100,7 @@ export class CreateReservationComponent implements OnInit {
   }
 
 
-  findAllReservationByIdContact(id: number) {
-    this.appService.findAllReservationByIdContact(id).then(
-      obj => this.success(obj),
-      error => this.failed(error)
-    );
-  }
-  success(res: Reservation[]) {
-    this.listReservation = [];
-    this.listReservation = res;
-  }
-  failed(error: any) {
-    console.log("ERROR " + JSON.stringify(error));
-  };
+  
 
 
   getContactType() {
@@ -116,13 +129,13 @@ export class CreateReservationComponent implements OnInit {
         error => this.failedInsertContact(error)
       );
     } else {
-      jQuery('#reservationModal').modal('show')
+      alert("Contacto ya existe")
     }
 
   }
   successInsertContact(res: Contact) {
     this.appService.setContact(res);
-    jQuery('#reservationModal').modal('show')
+    Swal.fire('Contacto', 'Contacto creado con exito!', 'success')
     this.contactSeleted = res;
 
 
@@ -131,22 +144,5 @@ export class CreateReservationComponent implements OnInit {
     console.log("ERROR " + JSON.stringify(error));
   };
 
-  saveReservarvation() {
-    this.reservation.contacto = this.contactSeleted;
-    this.appService.insertReservation(this.reservation).then(
-      obj => this.successSave(obj),
-      error => this.failedSave(error)
-    );
-  }
-  successSave(res: Reservation) {
-    jQuery('#reservationModal').modal('hide')
-    Swal.fire('Reservation', 'Your reservation has been created successfully.!', 'success')
-    this.findAllReservationByIdContact(res.contacto.id);
-    this.contactSeleted = new Contact();
-    this.objContact = new Contact();
-    this.reservation = new Reservation();
-  }
-  failedSave(error: any) {
-    console.log("ERROR " + JSON.stringify(error));
-  };
+
 }

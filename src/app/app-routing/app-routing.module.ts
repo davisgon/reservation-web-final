@@ -5,7 +5,7 @@ import { AppComponent } from '../app.component';
 import { ListReservationComponent } from '../list-reservation/list-reservation.component';
 import { CreateReservationComponent } from '../create-reservation/create-reservation.component';
 import { CreateReservationDetailComponent } from '../create-reservation-detail/create-reservation-detail.component';
-
+import { CreateContactComponent } from '../create-contact/create-contact.component';
 
 const routes: Routes = [
   {
@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'create-reservation-detail',
     component: CreateReservationDetailComponent
+  },
+  {
+    path: 'create-contact',
+    component: CreateContactComponent
   }
 ];
 

@@ -1,0 +1,85 @@
+<div class="row p-4">
+  <div class="col-md-3 text-danger">
+    <h2>Create Contact</h2>
+
+  </div>
+  <div class="col-md-5"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et
+    dolore
+    magna aliqua </div>
+  <div class="col-md-3 float-right"> <button type="button" class="btn btn-secondary float-right" routerLink="/"> Return
+    </button></div>
+</div>
+<br>
+<form>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="pi pi-user"></i></div>
+          <p-autoComplete [suggestions]="filteredContacts" (completeMethod)="filteredContact($event)" field="name"
+            [size]="20" placeholder="Contacts" [minLength]="1" [(ngModel)]="contactSeleted" (onBlur)="onBlurMethod()"
+            name="userNameContact"></p-autoComplete>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="pi pi-globe"></i></div>
+        </div>
+        <p-dropdown [options]="listContactType" [filter]="true" [style]="{'width':'100%', 'height': '100%'}"
+          [(ngModel)]="objContact.contactoType" name="ContactType"></p-dropdown>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="pi pi-mobile"></i></div>
+        </div> <input type="text" class="form-control" placeholder="Phone" [(ngModel)]="objContact.phoneNumber"
+          name="userPhoneNumber" required style="width: 30px;">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="pi pi-calendar "></i></div>
+        </div>
+        <p-calendar [(ngModel)]="objContact.birthDate" name="userBirthDate" dateFormat="dd/mm/yy"></p-calendar>
+      </div>
+      <div class="col-md-4 float-right p-4"> <button type="button" class="btn btn-danger float-right"
+          (click)="saveContact()">
+          Create
+        </button>
+
+      </div>
+    </div>
+  </div>
+</form>
+<h2> Contact List </h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th width="33.3%">No</th>
+      <th width="33.3%">Contact name</th>
+      <th width="33.3%">Phone number</th>
+    </tr>
+  </thead>
+
+</table>
+<table class="table">
+  <p-dataView #dv [value]="listContacts" [paginator]="true" [rows]="10" filterBy="name">
+    <ng-template let-contact pTemplate="listItem">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td width="33.3%"> {{contact.id}}</td>
+            <td width="33.3%">{{contact.name}} </td>
+            <td width="33.3%"> {{contact.phoneNumber}} </td>
+
+          </tr>
+      </table>
+
+    </ng-template>
+  </p-dataView>

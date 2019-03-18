@@ -9,8 +9,8 @@ import { Contact } from '../model/Contact';
 })
 export class AppService {
 
-  private reservationsUrl = 'https://shrouded-sea-42496.herokuapp.com/api/';  // URL to web api 
-  
+  private reservationsUrl = 'https://shrouded-sea-42496.herokuapp.com/api/';
+
   private contact: Contact;
 
   constructor(private http: Http) { }
@@ -51,7 +51,6 @@ export class AppService {
 
   }
 
-  // contactType
   getContactType(): Promise<ContactType[]> {
     return this.http.get(this.reservationsUrl + "contact_type")
       .toPromise()
@@ -82,11 +81,10 @@ export class AppService {
   }
 
   private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
+    console.error('An error occurred', error);
     return Promise.reject(error.message || error);
   }
 
-  // 
   public getContact() {
     return this.contact;
   }

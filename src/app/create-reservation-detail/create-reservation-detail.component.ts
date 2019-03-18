@@ -67,7 +67,7 @@ export class CreateReservationDetailComponent implements OnInit {
   }
   successSave(res: Reservation) {
     jQuery('#reservationModal').modal('hide')
-    Swal.fire('Reserva', 'Su reserva a sido generada con exito!', 'success')
+    Swal.fire('Reserva', 'Your reservation has been created successfully.!', 'success')
     this.getReservation();
 
   }
